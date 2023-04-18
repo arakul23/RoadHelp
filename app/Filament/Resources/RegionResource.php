@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class RegionResource extends Resource
 {
     protected static ?string $model = Region::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
@@ -68,5 +67,9 @@ class RegionResource extends Resource
             'create' => Pages\CreateRegion::route('/create'),
             'edit' => Pages\EditRegion::route('/{record}/edit'),
         ];
+    }
+    public static function getNavigationLabel(): string
+    {
+        return __('filament::layout.navigation.regions');
     }
 }
