@@ -30,7 +30,8 @@ return [
 
     'navigation' => [
         'multiple_regions_create' => 'Множинне додавання регіонів',
-        'regions' => 'Регіони'
+        'regions' => 'Регіони',
+        'export_cities' => 'Експортування міст'
     ],
 
 ];

@@ -2,12 +2,12 @@
     <form action="{{route('RegionMultipleCreate')}}" method="post" enctype="multipart/form-data">
         <input type="file" name="testFile" class="filepond--panel-root">
         <br>
-        <button class='test' type='submit'>Добавить из файла</button>
+        <button class='submitButton' type='submit'>Добавить из файла</button>
     </form>
 </x-filament::page>
 
 <style>
-   .test {
+   .submitButton {
         background-color: #4CAF50; /* Green */
         border: none;
         color: white;
