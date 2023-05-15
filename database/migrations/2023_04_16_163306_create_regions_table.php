@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('regions', function (Blueprint $table) {
             $table->id();
             $table->text('name');
+            $table->bigInteger('area_id')->unsigned();
+            $table->foreign('area_id')->references('id')->on('areas')
+                ->onDelete('RESTRICT')
+                ->onUpdate('CASCADE');
             $table->timestamps();
         });
     }

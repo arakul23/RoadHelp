@@ -31,7 +31,11 @@ return [
     'navigation' => [
         'multiple_regions_create' => 'Множинне додавання регіонів',
         'regions' => 'Регіони',
+        'areas' => 'Області',
         'export_cities' => 'Експортування міст'
     ],
+
+    'loading_header_message' => 'Зачекайте будь-ласка',
+    'loading_body_message' => 'Зачекайте будь-ласка, дані обробляються...'
 
 ];

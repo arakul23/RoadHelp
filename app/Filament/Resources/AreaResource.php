@@ -2,18 +2,21 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RegionResource\Pages;
-use App\Filament\Resources\RegionResource\RelationManagers;
-use App\Models\Region;
+use App\Filament\Resources\AreaResource\Pages;
+use App\Filament\Resources\AreaResource\RelationManagers;
+use App\Models\Area;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class RegionResource extends Resource
+class AreaResource extends Resource
 {
-    protected static ?string $model = Region::class;
+    protected static ?string $model = Area::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
@@ -61,13 +64,14 @@ class RegionResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRegions::route('/'),
-            'create' => Pages\CreateRegion::route('/create'),
-            'edit' => Pages\EditRegion::route('/{record}/edit'),
+            'index' => Pages\ListAreas::route('/'),
+            'create' => Pages\CreateArea::route('/create'),
+            'edit' => Pages\EditArea::route('/{record}/edit'),
         ];
     }
+
     public static function getNavigationLabel(): string
     {
-        return __('filament::layout.navigation.regions');
+        return __('filament::layout.navigation.areas');
     }
 }

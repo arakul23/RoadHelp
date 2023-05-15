@@ -3,6 +3,7 @@
         <input type="file" name="testFile" class="filepond--panel-root">
         <br>
         <button class='submitButton' type='submit'>Добавить из файла</button>
+        {{csrf_token()}}
     </form>
 </x-filament::page>
 
@@ -20,3 +21,19 @@
 
     }
 </style>
+
+<script>
+    async function exportCities() {
+        /*  let elem = document.querySelector('#result');
+          elem.innerHTML = "loading...";*/
+        let response = await fetch('/admin/exportCities',
+            {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{!! csrf_token() !!}'
+                }
+            });
+        let result = await response.text();
+        console.log(result);
+    }
+</script>

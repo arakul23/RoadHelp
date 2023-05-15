@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class RegionController
 {
     public function parseRegionsFile(Request $request) {
-        dd($request->files);
+        dd(23);
     }
 }
