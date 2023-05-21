@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class City extends Model
 {
@@ -11,12 +13,17 @@ class City extends Model
 
     protected $fillable = ['name', 'area_id', 'region_id'];
 
-    public function areas()
+    public function area(): BelongsTo
     {
         return $this->belongsTo(Area::class);
     }
-    public function regions()
+    public function region(): BelongsTo
     {
         return $this->belongsTo(Region::class);
+    }
+
+    public function company(): HasMany
+    {
+        return $this->hasMany(Company::class);
     }
 }

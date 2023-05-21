@@ -2,18 +2,20 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RegionResource\Pages;
-use App\Filament\Resources\RegionResource\RelationManagers;
-use App\Models\Region;
+use App\Filament\Resources\CityResource\Pages;
+use App\Filament\Resources\CityResource\RelationManagers;
+use App\Models\City;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 
-class RegionResource extends Resource
+class CityResource extends Resource
 {
-    protected static ?string $model = Region::class;
+    protected static ?string $model = City::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
@@ -26,7 +28,11 @@ class RegionResource extends Resource
                 Forms\Components\Select::make('area_id')
                     ->relationship('area', 'name')
                     ->required()
-                    ->label('Область')
+                    ->label('Область'),
+                Forms\Components\Select::make('region_id')
+                    ->relationship('region', 'name')
+                    ->required()
+                    ->label('Район'),
             ]);
     }
 
@@ -40,6 +46,9 @@ class RegionResource extends Resource
                 Tables\Columns\TextColumn::make('area.name')
                     ->sortable()
                     ->label('Область'),
+                Tables\Columns\TextColumn::make('region.name')
+                    ->sortable()
+                    ->label('Район'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->label('Создано'),
@@ -68,13 +77,14 @@ class RegionResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRegions::route('/'),
-            'create' => Pages\CreateRegion::route('/create'),
-            'edit' => Pages\EditRegion::route('/{record}/edit'),
+            'index' => Pages\ListCities::route('/'),
+            'create' => Pages\CreateCity::route('/create'),
+            'edit' => Pages\EditCity::route('/{record}/edit'),
         ];
     }
+
     public static function getNavigationLabel(): string
     {
-        return __('filament::layout.navigation.regions');
+        return __('filament::layout.navigation.cities');
     }
 }

@@ -32,7 +32,10 @@ return [
         'multiple_regions_create' => 'Множинне додавання регіонів',
         'regions' => 'Регіони',
         'areas' => 'Області',
-        'export_cities' => 'Експортування міст'
+        'export_cities' => 'Експортування міст',
+        'cities' => 'Міста',
+        'companies' => 'Компанії',
+        'services' => 'Услуги',
     ],
 
     'loading_header_message' => 'Зачекайте будь-ласка',

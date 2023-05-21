@@ -2,18 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RegionResource\Pages;
-use App\Filament\Resources\RegionResource\RelationManagers;
-use App\Models\Region;
+use App\Filament\Resources\CompanyResource\RelationManagers\ServiceRelationManager;
+use App\Filament\Resources\ServiceResource\Pages;
+use App\Filament\Resources\ServiceResource\RelationManagers;
+use App\Models\Service;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class RegionResource extends Resource
+class ServiceResource extends Resource
 {
-    protected static ?string $model = Region::class;
+    protected static ?string $model = Service::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
@@ -23,10 +27,6 @@ class RegionResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->label('Название'),
-                Forms\Components\Select::make('area_id')
-                    ->relationship('area', 'name')
-                    ->required()
-                    ->label('Область')
             ]);
     }
 
@@ -37,9 +37,6 @@ class RegionResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->sortable()
                     ->label('Название'),
-                Tables\Columns\TextColumn::make('area.name')
-                    ->sortable()
-                    ->label('Область'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->label('Создано'),
@@ -61,20 +58,21 @@ class RegionResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+         ServiceRelationManager::class
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRegions::route('/'),
-            'create' => Pages\CreateRegion::route('/create'),
-            'edit' => Pages\EditRegion::route('/{record}/edit'),
+            'index' => Pages\ListServices::route('/'),
+            'create' => Pages\CreateService::route('/create'),
+            'edit' => Pages\EditService::route('/{record}/edit'),
         ];
     }
-    public static function getNavigationLabel(): string
+
+    protected static function getNavigationLabel(): string
     {
-        return __('filament::layout.navigation.regions');
+        return __('filament::layout.navigation.services');
     }
 }
