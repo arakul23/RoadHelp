@@ -3,19 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CompanyResource\Pages;
-use App\Filament\Resources\CompanyResource\RelationManagers;
+use App\Filament\Resources\CompanyResource\RelationManagers\ServiceRelationManager;
 use App\Models\City;
 use App\Models\Company;
-use App\Models\Region;
 use App\Models\Service;
 use Filament\Forms;
-use Filament\Forms\Components\CheckboxList;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CompanyResource extends Resource
 {
@@ -63,9 +59,7 @@ class CompanyResource extends Resource
                     ->label('Номер телефона'),
                 Forms\Components\CheckboxList::make('service')
                     ->required()
-                    ->options(
-                        $servicesArray
-                    )
+                    ->relationship('service', 'name')
                     ->label('Услуги'),
             ]);
     }
@@ -89,6 +83,9 @@ class CompanyResource extends Resource
                 Tables\Columns\TextColumn::make('phone_number')
                     ->sortable()
                     ->label('Номер телефона'),
+                Tables\Columns\TextColumn::make('service.name')
+                    ->sortable()
+                    ->label('Услуги'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->label('Создано'),
@@ -110,7 +107,7 @@ class CompanyResource extends Resource
     public static function getRelations(): array
     {
         return [
-            RelationManagers\ServiceRelationManager::class
+
         ];
     }
 

@@ -3,7 +3,6 @@
         <input type="file" name="testFile" class="filepond--panel-root">
         <br>
         <button class='submitButton' type='submit'>Добавить из файла</button>
-        {{csrf_token()}}
     </form>
 </x-filament::page>
 

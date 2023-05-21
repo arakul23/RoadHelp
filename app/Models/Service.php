@@ -14,9 +14,8 @@ class Service extends Model
     protected $fillable = ['name'];
     public function company(): BelongsToMany
     {
-        return $this->belongsToMany(Company::class, 'companies')
-            ->withPivot([
-                'id'
-            ]);
+        return $this->belongsToMany(Company::class, 'company_service')
+            ->withPivot('company_id')
+            ->withPivot('service_id');
     }
 }

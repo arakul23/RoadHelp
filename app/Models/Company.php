@@ -35,9 +35,8 @@ class Company extends Model
 
     public function service(): BelongsToMany
     {
-        return $this->belongsToMany(Service::class, 'services')
-            ->withPivot([
-                'id'
-            ]);
+        return $this->belongsToMany(Service::class, 'company_service')
+            ->withPivot('company_id')
+            ->withPivot('service_id');
     }
 }
