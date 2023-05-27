@@ -2,18 +2,20 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CountryResource\Pages;
-use App\Models\Country;
+use App\Filament\Resources\ReviewResource\Pages;
+use App\Filament\Resources\ReviewResource\RelationManagers;
+use App\Models\Review;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-
-class CountryResource extends Resource
+class ReviewResource extends Resource
 {
-    protected static ?string $model = Country::class;
+    protected static ?string $model = Review::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -21,9 +23,7 @@ class CountryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->label('Название')
+                //
             ]);
     }
 
@@ -31,9 +31,12 @@ class CountryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\TextColumn::make('author_name')
                     ->sortable()
-                    ->label('Название'),
+                    ->label('Имя автора'),
+                Tables\Columns\TextColumn::make('text')
+                    ->sortable()
+                    ->label('Текст'),
             ])
             ->filters([
                 //
@@ -56,14 +59,14 @@ class CountryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCountries::route('/'),
-            'create' => Pages\CreateCountry::route('/create'),
-            'edit' => Pages\EditCountry::route('/{record}/edit'),
+            'index' => Pages\ListReviews::route('/'),
+            'create' => Pages\CreateReview::route('/create'),
+            'edit' => Pages\EditReview::route('/{record}/edit'),
         ];
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('filament::layout.navigation.countries');
+        return __('filament::layout.navigation.reviews');
     }
 }

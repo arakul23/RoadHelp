@@ -35,7 +35,10 @@ return [
         'export_cities' => 'Експортування міст',
         'cities' => 'Міста',
         'companies' => 'Компанії',
-        'services' => 'Услуги',
+        'services' => 'Послуги',
+        'countries' => 'Країни',
+        'employees' => 'Позаштатні добровільні співробітники',
+        'reviews' => 'Відгуки'
     ],
 
     'loading_header_message' => 'Зачекайте будь-ласка',
