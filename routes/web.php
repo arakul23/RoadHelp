@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CitiesController;
+use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\RegionController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/ref/{employee}', [EmployeesController::class, 'handleRefLink']);
 
 Route::post('/admin/createMultipleRegions', [RegionController::class, 'parseRegionsFile'])->name('RegionMultipleCreate');
 Route::post('/admin/exportCities', [CitiesController::class, 'exportCities'])->name('ExportCities');
