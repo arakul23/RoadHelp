@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class, 'index']);
 
 Route::get('/ref/{employee}', [EmployeesController::class, 'handleRefLink']);
+Route::post('/review/create', [ReviewController::class, 'create'])->name('createReview');
+
 
 Route::post('/admin/createMultipleRegions', [RegionController::class, 'parseRegionsFile'])->name('RegionMultipleCreate');
 Route::post('/admin/exportCities', [CitiesController::class, 'exportCities'])->name('ExportCities');

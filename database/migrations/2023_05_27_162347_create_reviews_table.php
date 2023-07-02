@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->text('author_name');
+            $table->text('name');
             $table->text('text');
             $table->timestamps();
         });
