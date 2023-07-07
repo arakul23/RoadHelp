@@ -6,12 +6,19 @@ use App\Models\Area;
 use App\Models\City;
 use App\Models\Region;
 use Filament\Notifications\Notification;
+use Illuminate\Support\Facades\DB;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 class CitiesController extends Controller
 {
     public function exportCities()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Area::truncate();
+        Region::truncate();
+        City::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
         $reader = new Xlsx();
         $city = new City();
         $inputFileName = public_path('cities.xlsx');
@@ -22,7 +29,7 @@ class CitiesController extends Controller
 
         foreach ($sheetData as $value) {
             if ($this->isNotNullValues($value)) {
-                $area = Area::firstOrNew(
+                $area = Area::firstOrCreate(
                     [
                         'name' => $value[1]
                     ]
@@ -32,16 +39,16 @@ class CitiesController extends Controller
 
                 $region = Region::firstOrCreate(
                     [
-                        'name' => $value[2],
+                        'name'    => $value[2],
                         'area_id' => $area->id
                     ],
                 );
 
                 $city::firstOrCreate(
                     [
-                        'name' => $value[0],
+                        'name'      => $value[0],
                         'region_id' => $region->id,
-                        'area_id' => $area->id
+                        'area_id'   => $area->id
                     ],
                 );
             }
