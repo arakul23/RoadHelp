@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index']);
+Route::get('/agreementCooperation', function () {
+    return view('agreement_cooperation');
+})->name('agreementCooperation');
 
 Route::get('/ref/{employee}', [EmployeesController::class, 'handleRefLink']);
 Route::post('/review/create', [ReviewController::class, 'create'])->name('createReview');

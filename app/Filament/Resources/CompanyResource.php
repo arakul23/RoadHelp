@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CompanyResource\Pages;
-use App\Filament\Resources\CompanyResource\RelationManagers\ServiceRelationManager;
 use App\Models\City;
 use App\Models\Company;
 use App\Models\Service;
@@ -18,6 +17,9 @@ class CompanyResource extends Resource
     protected static ?string $model = Company::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $modelLabel = 'Компанія';
+    protected static ?string $pluralModelLabel = 'Компанії';
+
 
     public static function form(Form $form): Form
     {
@@ -73,9 +75,11 @@ class CompanyResource extends Resource
                     ->label('Название'),
                 Tables\Columns\TextColumn::make('region.name')
                     ->sortable()
+                    ->searchable()
                     ->label('Район'),
                 Tables\Columns\TextColumn::make('city.name')
                     ->sortable()
+                    ->searchable()
                     ->label('Город'),
                 Tables\Columns\TextColumn::make('address')
                     ->sortable()

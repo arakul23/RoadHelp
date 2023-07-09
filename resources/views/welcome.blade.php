@@ -194,6 +194,14 @@
                                 <div class="booking-form-body">
                                     <div class="row">
                                         <div class="col-lg-12 col-12">
+                                            <input type="text" name="name" id="name" class="form-control"
+                                                   placeholder="{{__('translations.texts.name')}}" required>
+                                        </div>
+                                        <div class="col-lg-12 col-12">
+                                            <input type="text" name="surname" id="surname" class="form-control"
+                                                   placeholder="{{__('translations.texts.surname')}}" required>
+                                        </div>
+                                        <div class="col-lg-12 col-12">
                                             <input type="text" name="car_model" id="car_model" class="form-control"
                                                    placeholder="{{__('translations.texts.car_model')}}" required>
                                         </div>
@@ -208,11 +216,19 @@
 
                                         <div class="col-lg-12 col-12">
                                             <input type="tel" class="form-control" name="phone_number"
-                                                   placeholder="{{__('translations.texts.phone_number')}}"
-                                                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="">
+                                                   placeholder="{{__('translations.texts.phone_number')}}" required="">
                                         </div>
 
+                                        <div class="col-lg-12 col-12">
+                                            <input type="checkbox" name="agreement_cooperation" required>
+                                            <label for="agreement_cooperation"
+                                                   style="font-size: 0.8rem">{{__('translations.texts.agree')}} <a
+                                                    href="{{route('agreementCooperation')}}"
+                                                    target="_blank"> {{__('translations.texts.acquainted')}} </a> {{__('translations.texts.terms_cooperation')}}
+                                            </label>
+                                        </div>
                                     </div>
+                                    <br>
 
                                     <div class="col-lg-4 col-md-10 col-8 mx-auto">
                                         <button type="submit"
@@ -269,8 +285,9 @@
                                                    placeholder="{{__('translations.texts.name')}}" required>
                                         </div>
                                         <div class="col-lg-12 col-12">
-                                            <input type="text" class="form-control" name="text"
-                                                   placeholder="{{__('translations.texts.text')}}" required>
+                                            <textarea type="text" class="form-control" name="text"
+                                                      placeholder="{{__('translations.texts.text')}}"
+                                                      required></textarea>
                                         </div>
                                     </div>
 
