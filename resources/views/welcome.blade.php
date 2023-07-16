@@ -42,10 +42,7 @@
         <nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block sidebar collapse p-0">
 
             <div class="position-sticky sidebar-sticky d-flex flex-column justify-content-center align-items-center">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/templatemo-barber-logo.png" class="logo-image img-fluid" align="">
-                </a>
-
+                    𝑹𝒐𝒂𝒅𝑯𝒆𝒍𝒑
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="#section_1">{{__('translations.menu.home')}}</a>
@@ -64,7 +61,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="#section_5">{{__('translations.menu.contact')}}</a>
+                        <a class="nav-link click-scroll" href="#section_5">{{__('translations.menu.reviews')}}</a>
                     </li>
                 </ul>
             </div>
@@ -155,22 +152,22 @@
 
                         <div class="col-lg-6 col-12 mb-4">
                             <div class="services-thumb">
-                                <img src="{{asset('images/services/wheel_replacement.jpg')}}"
+                                <img src="{{asset('images/services/fuel_delivery.jpg')}}"
                                      class="services-image img-fluid" alt="">
 
                                 <div class="services-info d-flex align-items-end">
-                                    <h4 class="mb-0">{{__('translations.texts.wheel_replacement')}}</h4>
+                                    <h4 class="mb-0">{{__('translations.texts.fuel_delivery')}}</h4>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-12 mb-4">
                             <div class="services-thumb">
-                                <img src="{{asset('images/services/wheel_replacement.jpg')}}"
+                                <img src="{{asset('images/services/door_open.jpg')}}"
                                      class="services-image img-fluid" alt="">
 
                                 <div class="services-info d-flex align-items-end">
-                                    <h4 class="mb-0">{{__('translations.texts.wheel_replacement')}}</h4>
+                                    <h4 class="mb-0">{{__('translations.texts.door_open')}}</h4>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +175,7 @@
                 </div>
             </section>
 
-            <section class="pay-form-section section-padding" id="booking-section">
+            <section class="pay-form-section section-padding" id="section_4">
                 <div class="container">
                     <div class="row">
 
@@ -302,72 +299,45 @@
                     </div>
                 </div>
             </section>
+            @if($contacts)
+                <section class="contact-section" id="section_6">
+                    <div class="section-padding section-bg">
+                        <div class="container">
+                            <div class="row">
 
-            <section class="contact-section" id="section_5">
-                <div class="section-padding">
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="col-lg-6 col-12">
-                                <h5 class="mb-3"><strong>Contact</strong> Information</h5>
-
-                                <p class="text-white d-flex mb-1">
-                                    <a href="tel: 120-240-3600" class="site-footer-link">
-                                        (+49)
-                                        120-240-3600
-                                    </a>
-                                </p>
-
-                                <p class="text-white d-flex">
-                                    <a href="mailto:info@yourgmail.com" class="site-footer-link">
-                                        hello@barber.beauty
-                                    </a>
-                                </p>
-
-                                <ul class="social-icon">
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-facebook">
-                                        </a>
-                                    </li>
-
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-twitter">
-                                        </a>
-                                    </li>
-
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-instagram">
-                                        </a>
-                                    </li>
-
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-youtube">
-                                        </a>
-                                    </li>
-
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-whatsapp">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="col-lg-5 col-12 contact-block-wrap mt-5 mt-lg-0 pt-4 pt-lg-0 mx-auto">
-                                <div class="contact-block">
-                                    <h6 class="mb-0">
-                                        <i class="custom-icon bi-shop me-3"></i>
-
-                                        <strong>Open Daily</strong>
-
-                                        <span class="ms-auto">10:00 AM - 8:00 PM</span>
-                                    </h6>
+                                <div class="col-lg-6 col-12">
+                                    <h5 class="mb-3"><strong>{{__('translations.texts.contact_info')}}</strong></h5>
+                                    @if($contacts->phone_number)
+                                        <p class="text-white d-flex mb-1">
+                                            <a href="tel: 120-240-3600" class="site-footer-link">
+                                                {{$contacts->phone_number}}
+                                            </a>
+                                        </p>
+                                    @endif
+                                    @if($contacts->email)
+                                        <p class="text-white d-flex">
+                                            <a href="mailto:info@yourgmail.com" class="site-footer-link">
+                                                {{$contacts->email}}
+                                            </a>
+                                        </p>
+                                    @endif
                                 </div>
+                                @if($contacts->work_time)
+                                    <div class="col-lg-5 col-12 contact-block-wrap mt-5 mt-lg-0 pt-4 pt-lg-0 mx-auto">
+                                        <div class="contact-block">
+                                            <h6 class="mb-0">
+                                                <strong>{{__('translations.texts.work_time')}}</strong>
+
+                                                <span class="ms-auto">{{$contacts->work_time}}</span>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-
+                </section>
+            @endif
         </div>
     </div>
 </div>

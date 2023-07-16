@@ -38,7 +38,8 @@ return [
         'services' => 'Послуги',
         'countries' => 'Країни',
         'employees' => 'Позаштатні добровільні співробітники',
-        'reviews' => 'Відгуки'
+        'reviews' => 'Відгуки',
+        'contacts' => 'Контакти'
     ],
 
     'loading_header_message' => 'Зачекайте будь-ласка',
