@@ -42,7 +42,7 @@
         <nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block sidebar collapse p-0">
 
             <div class="position-sticky sidebar-sticky d-flex flex-column justify-content-center align-items-center">
-                    𝑹𝒐𝒂𝒅𝑯𝒆𝒍𝒑
+                𝑹𝒐𝒂𝒅𝑯𝒆𝒍𝒑
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="#section_1">{{__('translations.menu.home')}}</a>
@@ -129,46 +129,39 @@
                         </div>
 
                         <div class="col-lg-6 col-12 mb-4">
+                            <h4 class="mb-0">{{__('translations.texts.tow_truck')}}</h4>
+                            <hr>
                             <div class="services-thumb">
                                 <img src="{{asset('images/services/tow_truck.jpg')}}"
                                      class="services-image img-fluid" alt="">
 
-                                <div class="services-info d-flex align-items-end">
-                                    <h4 class="mb-0">{{__('translations.texts.tow_truck')}}</h4>
-                                </div>
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-12 mb-4">
+                            <h4 class="mb-0">{{__('translations.texts.wheel_replacement')}}</h4>
+                            <hr>
                             <div class="services-thumb">
                                 <img src="{{asset('images/services/wheel_replacement.jpg')}}"
                                      class="services-image img-fluid" alt="">
-
-                                <div class="services-info d-flex align-items-end">
-                                    <h4 class="mb-0">{{__('translations.texts.wheel_replacement')}}</h4>
-                                </div>
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-12 mb-4">
                             <div class="services-thumb">
+                                <h4 class="mb-0">{{__('translations.texts.fuel_delivery')}}</h4>
+                                <hr>
                                 <img src="{{asset('images/services/fuel_delivery.jpg')}}"
                                      class="services-image img-fluid" alt="">
-
-                                <div class="services-info d-flex align-items-end">
-                                    <h4 class="mb-0">{{__('translations.texts.fuel_delivery')}}</h4>
-                                </div>
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-12 mb-4">
                             <div class="services-thumb">
+                                <h4 class="mb-0">{{__('translations.texts.door_open')}}</h4>
+                                <hr>
                                 <img src="{{asset('images/services/door_open.jpg')}}"
                                      class="services-image img-fluid" alt="">
-
-                                <div class="services-info d-flex align-items-end">
-                                    <h4 class="mb-0">{{__('translations.texts.door_open')}}</h4>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -237,6 +230,49 @@
                     </div>
                 </div>
             </section>
+
+            <section class="review-section section-padding" id="review-section">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <form action="#" method="post" class="custom-form booking-form"
+                                  id="bb-booking-form"
+                                  role="form">
+                                <div class="text-center mb-5">
+                                    <h2 class="mb-1">{{__('translations.texts.leave_review')}}</h2>
+
+                                    <p>{{__('translations.texts.leave_review_description')}}</p>
+                                </div>
+
+                                <div class="booking-form-body">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-12">
+                                            <input type="text" name="name" id="review_author_name" class="form-control"
+                                                   placeholder="{{__('translations.texts.name') . ' ' . __('translations.texts.required')}}"
+                                                   required>
+                                        </div>
+                                        <div class="col-lg-12 col-12">
+                                            <textarea type="text" class="form-control" name="text" id="review_text"
+                                                      placeholder="{{__('translations.texts.text') . ' ' .__('translations.texts.required')}}"
+                                                      required></textarea>
+                                        </div>
+                                    </div>
+                                    <p style="color: red; display: none" id="review_error"></p>
+
+                                    <div class="col-lg-4 col-md-10 col-8 mx-auto">
+                                        <button type="button"
+                                                class="form-control"
+                                                onclick="createReview()">{{__('translations.buttons.send')}}</button>
+                                    </div>
+                                </div>
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             @if(count($reviews))
                 <section class="contact-section" id="section_5">
                     <div class="section-padding section-bg">
@@ -261,44 +297,7 @@
                     </div>
                 </section>
             @endif
-            <section class="booking-section section-padding" id="booking-section">
-                <div class="container">
-                    <div class="row">
 
-                        <div class="col-lg-10 col-12 mx-auto">
-                            <form action="{{route('createReview')}}" method="post" class="custom-form booking-form"
-                                  id="bb-booking-form"
-                                  role="form">
-                                <div class="text-center mb-5">
-                                    <h2 class="mb-1">{{__('translations.texts.leave_review')}}</h2>
-
-                                    <p>{{__('translations.texts.leave_review_description')}}</p>
-                                </div>
-
-                                <div class="booking-form-body">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-12">
-                                            <input type="text" name="name" class="form-control"
-                                                   placeholder="{{__('translations.texts.name')}}" required>
-                                        </div>
-                                        <div class="col-lg-12 col-12">
-                                            <textarea type="text" class="form-control" name="text"
-                                                      placeholder="{{__('translations.texts.text')}}"
-                                                      required></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-10 col-8 mx-auto">
-                                        <button type="submit"
-                                                class="form-control">{{__('translations.buttons.send')}}</button>
-                                    </div>
-                                </div>
-                                @csrf
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
             @if($contacts)
                 <section class="contact-section" id="section_6">
                     <div class="section-padding section-bg">
@@ -356,6 +355,40 @@
             arrows: true
         });
     });
+
+    async function createReview() {
+        document.getElementById('review_error').innerText = "";
+        document.getElementById('review_error').style.display = 'none';
+
+        if (!document.getElementById('review_author_name').value || !document.getElementById('review_text').value) {
+            document.getElementById('review_error').innerText = "{!!__('translations.texts.not_filled_required_fields')!!}";
+            document.getElementById('review_error').style.display = 'block';
+
+            return false;
+        }
+        let data = {
+            name: document.getElementById('review_author_name').value,
+            text: document.getElementById('review_text').value
+        };
+        let response = await fetch('/review',
+            {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{!! csrf_token() !!}',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'url': '/review',
+                },
+                body: JSON.stringify(data)
+            });
+        let message = await response.text();
+        let jsonParsedMessage = JSON.parse(message);
+
+        if (response.status === 201) {
+            document.getElementById('review-section').innerHTML = '<p style="color: green;" id="review_success">' + jsonParsedMessage.message + '</p>';
+        }
+        console.log(JSON.parse(message));
+    }
 </script>
 </body>
 </html>

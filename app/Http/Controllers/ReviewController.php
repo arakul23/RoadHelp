@@ -15,7 +15,10 @@ class ReviewController extends Controller
         ]);
 
         if ($created) {
-            return true;
+            return response()->json(['message' => __('translations.texts.review_created')], 201);
         }
+
+        return response()->json(['message' => __('translations.texts.review_not_created'), 500]);
+
     }
 }

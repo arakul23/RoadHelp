@@ -24,8 +24,7 @@ Route::get('/agreementCooperation', function () {
 })->name('agreementCooperation');
 
 Route::get('/ref/{employee}', [EmployeesController::class, 'handleRefLink']);
-Route::post('/review/create', [ReviewController::class, 'create'])->name('createReview');
-
 
 Route::post('/admin/createMultipleRegions', [RegionController::class, 'parseRegionsFile'])->name('RegionMultipleCreate');
 Route::post('/admin/exportCities', [CitiesController::class, 'exportCities'])->name('ExportCities');
+Route::post('/review', [ReviewController::class, 'create'])->name('createReview');
