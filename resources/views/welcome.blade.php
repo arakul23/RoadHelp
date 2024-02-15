@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>RoadHelp</title>
+    <title>AssistentAuto</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,7 +74,7 @@
                     <div class="row">
 
                         <div class="col-lg-8 col-12">
-                            <h1 class="text-white mb-lg-3 mb-4"><strong>RoadHelp</strong></h1>
+                            <h1 class="text-white mb-lg-3 mb-4"><strong>AssistentAuto</strong></h1>
                             <p class="text-black">{{__('translations.texts.tagline')}}</p>
                             <br>
                             <a class="btn custom-btn custom-border-btn custom-btn-bg-white smoothscroll me-2 mb-2"
