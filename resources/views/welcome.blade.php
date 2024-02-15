@@ -42,7 +42,7 @@
         <nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block sidebar collapse p-0">
 
             <div class="position-sticky sidebar-sticky d-flex flex-column justify-content-center align-items-center">
-                𝑹𝒐𝒂𝒅𝑯𝒆𝒍𝒑
+                AssistentAuto
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="#section_1">{{__('translations.menu.home')}}</a>
