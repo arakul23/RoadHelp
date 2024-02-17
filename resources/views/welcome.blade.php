@@ -300,7 +300,7 @@
 
             @if($contacts)
                 <section class="contact-section" id="section_6">
-                    <div class="section-padding section-bg">
+                    <div class="section-padding">
                         <div class="container">
                             <div class="row">
 
