@@ -40,7 +40,15 @@
         </button>
 
         <nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block sidebar collapse p-0">
-
+            <div class="custom-select" style="width:200px;">
+                <form action="{{route('language')}}" method="POST">
+                    @csrf
+                    <select name="language" onchange="this.form.submit()">
+                        <option value="uk" {{app()->getLocale() === 'uk' ? 'selected' : ''}}>UK</option>
+                        <option value="en" {{app()->getLocale() === 'en' ? 'selected' : ''}}>EN</option>
+                    </select>
+                </form>
+            </div>
             <div class="position-sticky sidebar-sticky d-flex flex-column justify-content-center align-items-center">
                 AssistentAuto
                 <ul class="nav flex-column">
@@ -69,10 +77,8 @@
 
         <div class="col-md-8 ms-sm-auto col-lg-9 p-0">
             <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
-
                 <div class="container">
                     <div class="row">
-
                         <div class="col-lg-8 col-12">
                             <h1 class="text-white mb-lg-3 mb-4"><strong>AssistentAuto</strong></h1>
                             <p class="text-black">{{__('translations.texts.tagline')}}</p>
@@ -123,7 +129,6 @@
             <section class="services-section section-padding" id="section_3">
                 <div class="container">
                     <div class="row">
-
                         <div class="col-lg-12 col-12">
                             <h2 class="mb-5">{{__('translations.menu.services')}}</h2>
                         </div>
@@ -340,6 +345,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- JAVASCRIPT FILES -->
 <script src="{{asset('js/jquery.min.js')}}"></script>

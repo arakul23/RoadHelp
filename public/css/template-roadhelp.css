@@ -187,6 +187,9 @@ strong {
     bottom: 10px;
 }
 
+.custom-select select {
+    border-color: var(--primary-color);
+}
 
 /*---------------------------------------
   CUSTOM BUTTON
