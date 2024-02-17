@@ -3,6 +3,7 @@
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\PublicOfferController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index']);
-Route::get('/agreementCooperation', function () {
-    return view('agreement_cooperation');
-})->name('agreementCooperation');
+Route::get('/agreementCooperation', [PublicOfferController::class, 'showPublicOffer'])->name('agreementCooperation');
 
 Route::get('/ref/{employee}', [EmployeesController::class, 'handleRefLink']);
 
