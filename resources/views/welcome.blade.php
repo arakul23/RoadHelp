@@ -98,7 +98,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-12 mx-auto">
-                            <h2 class="mb-4">Про нас</h2>
+                            <h2 class="mb-4">{{__('translations.texts.about_us')}}</h2>
 
                             <div class="border-bottom pb-3 mb-5">
                                 <p> {{__('translations.texts.about_us_1')}}</p>
