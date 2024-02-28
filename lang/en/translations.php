@@ -30,7 +30,7 @@ return [
         'fuel_delivery'              => 'Delivery of fuel',
         'door_open'                  => 'Emergency opening of locks',
         'join'                       => 'Join in',
-        'pay_form_text'              => 'Use our services for only 365 hryvnias per year',
+        'pay_form_text'              => 'Use our services for only 1 hryvnia per day',
         'phone_number'               => 'Phone number',
         'car_model'                  => 'Car brand',
         'car_number'                 => 'Vehicle number',

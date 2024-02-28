@@ -21,7 +21,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index']);
-Route::get('/agreementCooperation', [PublicOfferController::class, 'showPublicOffer'])->name('agreementCooperation');
+Route::get('/agreementCooperation', function () {
+    return view('edac_public_offer_enjoy_2023');
+})->name('agreementCooperation');
 
 Route::get('/ref/{employee}', [EmployeesController::class, 'handleRefLink']);
 
