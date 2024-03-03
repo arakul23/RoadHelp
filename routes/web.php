@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index']);
-Route::get('/agreementCooperation', function () {
+Route::get('/agree', function () {
     return view('edac_public_offer_enjoy_2023');
 })->name('agreementCooperation');
 
