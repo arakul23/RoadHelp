@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/agree', function () {
-    return view('edac_public_offer_enjoy_2023');
+    return view('AssistantAuto_public-offer-2023');
 })->name('agreementCooperation');
 
 Route::get('/ref/{employee}', [EmployeesController::class, 'handleRefLink']);
