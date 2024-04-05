@@ -55,15 +55,16 @@
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="#section_1">{{__('translations.menu.home')}}</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="#section_2">{{__('translations.menu.about_us')}}</a>
+                        <a class="nav-link click-scroll" href="#section_2">{{__('translations.menu.how_it_works')}}</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a style="cursor: pointer" data-modal="#about_us_modal"
+                           class="js-modal nav-link">{{__('translations.menu.about_us')}}</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="#section_3">{{__('translations.menu.services')}}</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="#section_4">{{__('translations.menu.pay')}}</a>
                     </li>
@@ -84,7 +85,7 @@
                             <p class="text-black">{{__('translations.texts.tagline')}}</p>
                             <br>
                             <a class="btn custom-btn custom-border-btn custom-btn-bg-white smoothscroll me-2 mb-2"
-                               href="#section_2">{{__('translations.menu.about_us')}}</a>
+                               href="#section_2">{{__('translations.menu.how_it_works')}}</a>
 
                             <a class="btn custom-btn smoothscroll mb-2"
                                href="#section_3">{{__('translations.menu.services')}}</a>
@@ -98,7 +99,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-12 mx-auto">
-                            <h2 class="mb-4">{{__('translations.texts.about_us')}}</h2>
+                            <h2 class="mb-4">{{__('translations.texts.how_it_works')}}</h2>
 
                             <div class="border-bottom pb-3 mb-5">
                                 <p> {{__('translations.texts.about_us_1')}}</p>
@@ -111,6 +112,21 @@
                 </div>
             </section>
 
+            <div id="about_us_modal" class="modal-window">
+                <div>
+                    <p> {{__('translations.texts.about_us_1')}}</p>
+                    <p> {{__('translations.texts.about_us_2')}}</p>
+                    <p> {{__('translations.texts.about_us_3')}}</p>
+                    <p> {{__('translations.texts.about_us_4')}}</p>
+                    @if ($contacts->phone_number)
+                       <p>{{__('translations.texts.phone_number')}} {{$contacts->phone_number}}</p>
+                    @endif
+                    @if ($contacts->email)
+                        <p>{{__('translations.texts.email')}} {{$contacts->email}}</p>
+                    @endif
+                    <a href="#" class="modal-close">Закрыть</a>
+                </div>
+            </div>
             <section class="featured-section section-padding">
                 <div class="section-overlay"></div>
 
@@ -135,6 +151,7 @@
 
                         <div class="col-lg-6 col-12 mb-4">
                             <h4 class="mb-0">{{__('translations.texts.tow_truck')}}</h4>
+                            <i style="font-size: 10px">{{__('translations.texts.tow_truck_price')}}</i>
                             <hr>
                             <div class="services-thumb">
                                 <img src="{{asset('images/services/tow_truck.jpg')}}"
@@ -145,6 +162,7 @@
 
                         <div class="col-lg-6 col-12 mb-4">
                             <h4 class="mb-0">{{__('translations.texts.wheel_replacement')}}</h4>
+                            <i style="font-size: 10px">{{__('translations.texts.wheel_replacement_price')}}</i>
                             <hr>
                             <div class="services-thumb">
                                 <img src="{{asset('images/services/wheel_replacement.jpg')}}"
@@ -155,6 +173,7 @@
                         <div class="col-lg-6 col-12 mb-4">
                             <div class="services-thumb">
                                 <h4 class="mb-0">{{__('translations.texts.fuel_delivery')}}</h4>
+                                <i style="font-size: 10px">{{__('translations.texts.fuel_delivery_price')}}</i>
                                 <hr>
                                 <img src="{{asset('images/services/fuel_delivery.jpg')}}"
                                      class="services-image img-fluid" alt="">
@@ -164,6 +183,7 @@
                         <div class="col-lg-6 col-12 mb-4">
                             <div class="services-thumb">
                                 <h4 class="mb-0">{{__('translations.texts.door_open')}}</h4>
+                                <i style="font-size: 10px">{{__('translations.texts.door_open_price')}}</i>
                                 <hr>
                                 <img src="{{asset('images/services/door_open.jpg')}}"
                                      class="services-image img-fluid" alt="">
@@ -346,6 +366,61 @@
     </div>
 </div>
 
+<style>
+    .wrap-center-middle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: wrap column;
+        text-align: center;
+        height: 100vh;
+    }
+
+    .modal-window {
+        position: fixed;
+        z-index: 100;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -80%) scale(0.9);
+        width: 95%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        border-radius: 4px;
+        transition: all 0.18s ease-in-out;
+        visibility: hidden;
+        opacity: 0;
+        padding: 50px;
+    }
+
+    .modal-window.show {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .modal-window__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        height: 100%;
+        min-height: inherit;
+    }
+
+    .modal-window__backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
 
 <!-- JAVASCRIPT FILES -->
 <script src="{{asset('js/jquery.min.js')}}"></script>
@@ -354,6 +429,42 @@
 <script src="{{asset('js/custom.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/slick/slick.js')}}"></script>
 <script type="text/javascript">
+    (function () {
+        "use strict";
+
+        const backdrop = document.querySelector('#modal-backdrop');
+        document.addEventListener('click', modalHandler);
+
+        function modalHandler(evt) {
+            const modalBtnOpen = evt.target.closest('.js-modal');
+            if (modalBtnOpen) { // open btn click
+                const modalSelector = modalBtnOpen.dataset.modal;
+                showModal(document.querySelector(modalSelector));
+            }
+
+            const modalBtnClose = evt.target.closest('.modal-close');
+            if (modalBtnClose) { // close btn click
+                evt.preventDefault();
+                hideModal(modalBtnClose.closest('.modal-window'));
+            }
+
+            if (evt.target.matches('#modal-backdrop')) { // backdrop click
+                hideModal(document.querySelector('.modal-window.show'));
+            }
+        }
+
+        function showModal(modalElem) {
+            modalElem.classList.add('show');
+            backdrop.classList.remove('hidden');
+        }
+
+        function hideModal(modalElem) {
+            modalElem.classList.remove('show');
+            backdrop.classList.add('hidden');
+        }
+    })();
+
+
     $(document).ready(function () {
         $('.reviews_block').slick({
             autoplay: true,
