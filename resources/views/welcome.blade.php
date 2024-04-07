@@ -50,10 +50,6 @@
                         <a class="nav-link click-scroll" href="#section_2">{{__('translations.menu.how_it_works')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a style="cursor: pointer" data-modal="#about_us_modal"
-                           class="js-modal nav-link">{{__('translations.menu.about_us')}}</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link click-scroll" href="#section_3">{{__('translations.menu.services')}}</a>
                     </li>
                     <li class="nav-item">
@@ -73,7 +69,7 @@
                     <form action="{{route('language')}}" method="POST">
                         @csrf
                         <select name="language" onchange="this.form.submit()">
-                            <option value="uk" {{app()->getLocale() === 'uk' ? 'selected' : ''}}>UK</option>
+                            <option value="ua" {{app()->getLocale() === 'ua' ? 'selected' : ''}}>UA</option>
                             <option value="en" {{app()->getLocale() === 'en' ? 'selected' : ''}}>EN</option>
                         </select>
                     </form>
@@ -84,8 +80,7 @@
                             <h1 class="text-white mb-lg-3 mb-4"><strong>AssistentAuto</strong></h1>
                             <p class="text-black">{{__('translations.texts.tagline')}}</p>
                             <br>
-                            <a class="btn custom-btn custom-border-btn custom-btn-bg-white smoothscroll me-2 mb-2"
-                               href="#section_2">{{__('translations.menu.how_it_works')}}</a>
+                            <a data-modal="#about_us_modal" class="js-modal btn custom-btn custom-border-btn custom-btn-bg-white smoothscroll me-2 mb-2">{{__('translations.texts.about_us')}}</a>
 
                             <a class="btn custom-btn smoothscroll mb-2"
                                href="#section_3">{{__('translations.menu.services')}}</a>
@@ -123,7 +118,7 @@
                     @if ($contacts->email)
                         <p>{{__('translations.texts.email')}} {{$contacts->email}}</p>
                     @endif
-                    <a href="#" class="modal-close">Закрыть</a>
+                    <a href="#" class="modal-close">{{__('translations.texts.close')}}</a>
                 </div>
             </div>
             <section class="featured-section section-padding">
@@ -395,6 +390,8 @@
         transform: translate(-50%, -50%) scale(1);
         opacity: 1;
         visibility: visible;
+        max-height: 500px;
+        overflow: auto;
     }
 
     .modal-window__title {
@@ -503,7 +500,6 @@
         if (response.status === 201) {
             document.getElementById('review-section').innerHTML = '<p style="color: green;" id="review_success">' + jsonParsedMessage.message + '</p>';
         }
-        console.log(JSON.parse(message));
     }
 </script>
 </body>
