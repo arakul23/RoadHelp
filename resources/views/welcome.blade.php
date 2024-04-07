@@ -40,15 +40,6 @@
         </button>
 
         <nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block sidebar collapse p-0">
-            <div class="custom-select" style="width:200px;">
-                <form action="{{route('language')}}" method="POST">
-                    @csrf
-                    <select name="language" onchange="this.form.submit()">
-                        <option value="uk" {{app()->getLocale() === 'uk' ? 'selected' : ''}}>UK</option>
-                        <option value="en" {{app()->getLocale() === 'en' ? 'selected' : ''}}>EN</option>
-                    </select>
-                </form>
-            </div>
             <div class="position-sticky sidebar-sticky d-flex flex-column justify-content-center align-items-center">
                 AssistentAuto
                 <ul class="nav flex-column">
@@ -78,6 +69,15 @@
 
         <div class="col-md-8 ms-sm-auto col-lg-9 p-0">
             <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+                <div class="custom-select" style="width:200px; position: absolute; top:0; right: 0; z-index: 2">
+                    <form action="{{route('language')}}" method="POST">
+                        @csrf
+                        <select name="language" onchange="this.form.submit()">
+                            <option value="uk" {{app()->getLocale() === 'uk' ? 'selected' : ''}}>UK</option>
+                            <option value="en" {{app()->getLocale() === 'en' ? 'selected' : ''}}>EN</option>
+                        </select>
+                    </form>
+                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 col-12">
@@ -102,10 +102,9 @@
                             <h2 class="mb-4">{{__('translations.texts.how_it_works')}}</h2>
 
                             <div class="border-bottom pb-3 mb-5">
-                                <p> {{__('translations.texts.about_us_1')}}</p>
-                                <p> {{__('translations.texts.about_us_2')}}</p>
-                                <p> {{__('translations.texts.about_us_3')}}</p>
-                                <p> {{__('translations.texts.about_us_4')}}</p>
+                                <p> {{__('translations.texts.how_it_works_1')}}</p>
+                                <p> {{__('translations.texts.how_it_works_2')}}</p>
+                                <p> {{__('translations.texts.how_it_works_3')}}</p>
                             </div>
                         </div>
                     </div>
