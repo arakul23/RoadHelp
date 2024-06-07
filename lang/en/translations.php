@@ -20,12 +20,12 @@ return [
     'texts' => [
         'close'                      => 'Close',
         'tagline'                    => 'Call us, we will do the rest',
-        'about_us_1'                 => 'Now is the time to act and help everyone. Help yourself and your family!',
+        'about_us_1'                 => 'Assistentauto is a site that for 1 hryvnia per day helps you quickly find specialists to solve your problems on the roads of Ukraine. The best in their field work for you.',
         'about_us_2'                 => "For only 1 hryvnia per day, we will solve your questions on the road throughout Ukraine:
                                     ran out of fuel - we'll give you a ride, we left the keys in the car - we'll open it, the wheels are punctured -
                                     we will replace it, we need a tow truck - and here we are",
-        'about_us_3'                 => "Let's keep calm on the road and together help bring victory closer!",
-        'about_us_4'                 => 'We are always there and ready to help.',
+        'about_us_3'                 => "We are always there and ready to help.",
+        'about_us_4'                 => 'Ukraine, Odesa, st. Parkova 75v, apartment 42',
         'how_it_works_1'             => 'Assistentauto quickly unites specialists and those who need their services for only 1 hryvnia per day.
 If problems arise on the road, in a stressful situation, you will not have to seek help, call us, and we will quickly select the specialists you need to solve your problem on the roads of Ukraine, and send you help:',
         'how_it_works_2'             => "ran out of fuel - we'll give you a ride, we left the keys in the car - we'll open it, the wheels are punctured -
