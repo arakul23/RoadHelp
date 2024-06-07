@@ -55,9 +55,16 @@
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="#section_4">{{__('translations.menu.pay')}}</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="#section_5">{{__('translations.menu.reviews')}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('agreementCooperation')}}" target="_blank"
+                           class="nav-link click-scroll btn">{{__('translations.menu.user_agreement')}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-modal="#about_us_modal"
+                           class="nav-link click-scroll js-modal btn">{{__('translations.menu.about_us')}}</a>
                     </li>
                 </ul>
             </div>
@@ -80,7 +87,8 @@
                             <h1 class="text-white mb-lg-3 mb-4"><strong>AssistentAuto</strong></h1>
                             <p class="text-black">{{__('translations.texts.tagline')}}</p>
                             <br>
-                            <a data-modal="#about_us_modal" class="js-modal btn custom-btn custom-border-btn custom-btn-bg-white smoothscroll me-2 mb-2">{{__('translations.texts.about_us')}}</a>
+                            <a data-modal="#about_us_modal"
+                               class="js-modal btn custom-btn custom-border-btn custom-btn-bg-white smoothscroll me-2 mb-2">{{__('translations.texts.about_us')}}</a>
 
                             <a class="btn custom-btn smoothscroll mb-2"
                                href="#section_3">{{__('translations.menu.services')}}</a>
@@ -113,7 +121,7 @@
                     <p> {{__('translations.texts.about_us_3')}}</p>
                     <p> {{__('translations.texts.about_us_4')}}</p>
                     @if ($contacts->phone_number)
-                       <p>{{__('translations.texts.phone_number')}} {{$contacts->phone_number}}</p>
+                        <p>{{__('translations.texts.phone_number')}} {{$contacts->phone_number}}</p>
                     @endif
                     @if ($contacts->email)
                         <p>{{__('translations.texts.email')}} {{$contacts->email}}</p>

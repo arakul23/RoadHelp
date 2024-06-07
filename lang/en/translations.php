@@ -2,12 +2,14 @@
 
 return [
     'menu' => [
-        'home'         => 'Home',
-        'how_it_works' => 'How it works',
-        'services'     => 'Services',
-        'pay'          => 'Pay',
-        'contact'      => 'Contacts',
-        'reviews'      => 'Reviews'
+        'home'           => 'Home',
+        'how_it_works'   => 'How it works',
+        'services'       => 'Services',
+        'pay'            => 'Pay',
+        'contact'        => 'Contacts',
+        'reviews'        => 'Reviews',
+        'user_agreement' => "User Agreement / Public Offer",
+        'about_us'       => 'About us'
     ],
 
     'buttons' => [
@@ -32,15 +34,15 @@ If problems arise on the road, in a stressful situation, you will not have to se
         'charity_1'                  => 'Together to victory!',
         'charity_2'                  => '50 % of the funds go to charity projects and assistance to the military',
         'tow_truck'                  => 'Tow truck',
-        'tow_truck_price'            => 'From UAH 800 in the city, outside the city + 15 hryvnias . for 1 km . in both directions',
+        'tow_truck_price'            => '1000 hryvnias up to 10 km., further + 25 UAH. km In both directions',
         'wheel_replacement'          => 'Wheel replacement',
-        'wheel_replacement_price'    => 'From UAH 400 around the city, outside the city + 12 hryvnias . for 1 km . in both directions . ',
+        'wheel_replacement_price'    => '700 hryvnias up to 10 km. , then +20 hryvnias. Km In both directions',
         'fuel_delivery'              => 'Delivery of fuel',
-        'fuel_delivery_price'        => 'From UAH 100 in the city up to 2 km ., outside the city + 12 UAH . for 1 km . in both directions . ',
+        'fuel_delivery_price'        => '600 hryvnias Up to 10 km, further + UAH 20. For km In both directions',
         'door_open'                  => 'Emergency opening of locks',
         'door_open_price'            => 'From UAH 500 in the city, outside the city + 15 hryvnias . for 1 km . in both directions . ',
         'join'                       => 'Join in',
-        'pay_form_text'              => 'use our services for 1 hryvnia per day(the contract is concluded for one year, at the price of 365 hryvnias)',
+        'pay_form_text'              => 'use our services for 1 hryvnia per day(the contract is concluded for one year, at the price of 365 hryvnias) (1 hryvnya per day is equal 2,5 cents, 365 hryvnias per year is equal 9,1 dollars)',
         'phone_number'               => 'Phone number',
         'how_it_works'               => 'How it works',
         'car_model'                  => 'Car brand',
