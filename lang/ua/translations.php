@@ -36,7 +36,7 @@ return [
         'wheel_replacement'          => 'Заміна колеса',
         'wheel_replacement_price'    => '700 грн. до 10км. , далі +20грн. Км. В обидві сторони',
         'fuel_delivery'              => 'Доставка палива',
-        'fuel_delivery_price'        => '(Only in a 5L or 10L can) 300 UAH. up to 5 km. , then +20 UAH per km. In both directions',
+        'fuel_delivery_price'        => '(Тільки у каністрі 5л, або 10л) 300грн. до 5 км. , далі +20 грн км. В обидві сторони',
         'door_open'                  => 'Аварійне відкриття замків',
         'door_open_price'            => '600грн. До 10км., далі + 20грн. За км. В обидві сторони',
         'join'                       => 'Приєднуйтесь',
