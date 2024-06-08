@@ -76,7 +76,7 @@
                     <form action="{{route('language')}}" method="POST">
                         @csrf
                         <select name="language" onchange="this.form.submit()">
-                            <option value="ua" {{app()->getLocale() === 'ua' ? 'selected' : ''}}>UA</option>
+                            <option value="ua" {{app()->getLocale() === 'uk' ? 'selected' : ''}}>UK</option>
                             <option value="en" {{app()->getLocale() === 'en' ? 'selected' : ''}}>EN</option>
                         </select>
                     </form>
