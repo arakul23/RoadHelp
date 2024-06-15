@@ -28,7 +28,7 @@ return [
         'about_us_4'                 => 'Ukraine, Odesa, st. Parkova 75v, apartment 42',
         'how_it_works_1'             => 'Assistentauto quickly unites specialists and those who need their services for only 1 hryvnia per day.
 If problems arise on the road, in a stressful situation, you will not have to seek help, call us, and we will quickly select the specialists you need to solve your problem on the roads of Ukraine, and send you help:',
-        'how_it_works_2'             => "ran out of fuel - we'll give you a ride, we left the keys in the car - we'll open it, the wheels are punctured -
+        'how_it_works_2'             => "left the keys in the car - we'll open it, the wheels are punctured -
                                     we will replace it, we need a tow truck - and here we are",
         'how_it_works_3'             => "We work for you, we work with you, together we bring victory closer!",
         'charity_1'                  => 'Together to victory!',
