@@ -28,7 +28,7 @@ return [
         'about_us_4'                 => 'Ukraine, Odesa, st. Parkova 75v, apartment 42',
         'how_it_works_1'             => 'Assistentauto quickly unites specialists and those who need their services for only 1 hryvnia per day.
 If problems arise on the road, in a stressful situation, you will not have to seek help, call us, and we will quickly select the specialists you need to solve your problem on the roads of Ukraine, and send you help:',
-        'how_it_works_2'             => "ran out of fuel - we'll give you a ride, we left the keys in the car - we'll open it, the wheels are punctured -
+        'how_it_works_2'             => "the battery is in, we can help you start the engine, left the keys in the car - we'll open it, the wheels are punctured -
                                     we will replace it, we need a tow truck - and here we are",
         'how_it_works_3'             => "We work for you, we work with you, together we bring victory closer!",
         'charity_1'                  => 'Together to victory!',
@@ -37,8 +37,8 @@ If problems arise on the road, in a stressful situation, you will not have to se
         'tow_truck_price'            => '1000 hryvnias up to 10 km., further + 25 UAH. km In both directions',
         'wheel_replacement'          => 'Wheel replacement',
         'wheel_replacement_price'    => '700 hryvnias up to 10 km. , then +20 hryvnias. Km In both directions',
-        'fuel_delivery'              => 'Delivery of fuel',
-        'fuel_delivery_price'        => '600 hryvnias Up to 10 km, further + UAH 20. For km In both directions',
+        'engine_starting'            => 'Engine starting',
+        'engine_starting_price'      => '300 UAH up to 10 km., + 20 UAH per kilometer in both directions',
         'door_open'                  => 'Emergency opening of locks',
         'door_open_price'            => 'From UAH 500 in the city, outside the city + 15 hryvnias . for 1 km . in both directions . ',
         'join'                       => 'Join in',

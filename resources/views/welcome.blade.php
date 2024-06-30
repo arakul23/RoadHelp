@@ -174,10 +174,10 @@
 
                         <div class="col-lg-6 col-12 mb-4">
                             <div class="services-thumb">
-                                <h4 class="mb-0">{{__('translations.texts.fuel_delivery')}}</h4>
-                                <i style="font-size: 10px">{{__('translations.texts.fuel_delivery_price')}}</i>
+                                <h4 class="mb-0">{{__('translations.texts.engine_starting')}}</h4>
+                                <i style="font-size: 10px">{{__('translations.texts.engine_starting_price')}}</i>
                                 <hr>
-                                <img src="{{asset('images/services/fuel_delivery.jpg')}}"
+                                <img src="{{asset('images/services/engine_starting.png')}}"
                                      class="services-image img-fluid" alt="">
                             </div>
                         </div>
