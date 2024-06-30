@@ -151,46 +151,66 @@
                             <h2 class="mb-5">{{__('translations.menu.services')}}</h2>
                         </div>
 
+
                         <div class="col-lg-6 col-12 mb-4">
                             <h4 class="mb-0">{{__('translations.texts.tow_truck')}}</h4>
+                            <i  style="font-size: 10px">{{__('translations.texts.tow_truck_description')}}</i>
+                            <br>
                             <i style="font-size: 10px">{{__('translations.texts.tow_truck_price')}}</i>
                             <hr>
-                            <div class="services-thumb">
-                                <img src="{{asset('images/services/tow_truck.jpg')}}"
-                                     class="services-image img-fluid" alt="">
-
-                            </div>
                         </div>
+
+                        <div class="col-lg-6 col-12 mb-4 services-thumb">
+                            <img src="{{asset('images/services/tow_truck.jpg')}}"
+                                 class="services-image img-fluid" alt="">
+                        </div>
+
+
+
 
                         <div class="col-lg-6 col-12 mb-4">
                             <h4 class="mb-0">{{__('translations.texts.wheel_replacement')}}</h4>
+                            <i  style="font-size: 10px">{{__('translations.texts.wheel_replacement_description')}}</i>
+                            <br>
                             <i style="font-size: 10px">{{__('translations.texts.wheel_replacement_price')}}</i>
                             <hr>
-                            <div class="services-thumb">
-                                <img src="{{asset('images/services/wheel_replacement.jpg')}}"
-                                     class="services-image img-fluid" alt="">
-                            </div>
                         </div>
 
-                        <div class="col-lg-6 col-12 mb-4">
-                            <div class="services-thumb">
-                                <h4 class="mb-0">{{__('translations.texts.engine_starting')}}</h4>
-                                <i style="font-size: 10px">{{__('translations.texts.engine_starting_price')}}</i>
-                                <hr>
-                                <img src="{{asset('images/services/engine_starting.png')}}"
-                                     class="services-image img-fluid" alt="">
-                            </div>
+                        <div class="col-lg-6 col-12 mb-4 services-thumb">
+                            <img src="{{asset('images/services/wheel_replacement.jpg')}}"
+                                 class="services-image img-fluid" alt="">
                         </div>
 
+
+
                         <div class="col-lg-6 col-12 mb-4">
-                            <div class="services-thumb">
-                                <h4 class="mb-0">{{__('translations.texts.door_open')}}</h4>
-                                <i style="font-size: 10px">{{__('translations.texts.door_open_price')}}</i>
-                                <hr>
-                                <img src="{{asset('images/services/door_open.jpg')}}"
-                                     class="services-image img-fluid" alt="">
-                            </div>
+                            <h4 class="mb-0">{{__('translations.texts.engine_starting')}}</h4>
+                            <i  style="font-size: 10px">{{__('translations.texts.engine_starting_description')}}</i>
+                            <br>
+                            <i style="font-size: 10px">{{__('translations.texts.engine_starting_price')}}</i>
+                            <hr>
                         </div>
+
+                        <div class="col-lg-6 col-12 mb-4 services-thumb">
+                            <img src="{{asset('images/services/engine_starting.png')}}"
+                                 class="services-image img-fluid" alt="">
+                        </div>
+
+
+
+                        <div class="col-lg-6 col-12 mb-4">
+                            <h4 class="mb-0">{{__('translations.texts.door_open')}}</h4>
+                            <i  style="font-size: 10px">{{__('translations.texts.door_open_description')}}</i>
+                            <br>
+                            <i style="font-size: 10px">{{__('translations.texts.door_open_price')}}</i>
+                            <hr>
+                        </div>
+
+                        <div class="col-lg-6 col-12 mb-4 services-thumb">
+                            <img src="{{asset('images/services/door_open.jpg')}}"
+                                 class="services-image img-fluid" alt="">
+                        </div>
+
                     </div>
                 </div>
             </section>
