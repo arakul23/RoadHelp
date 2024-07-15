@@ -49,6 +49,7 @@ return [
         'how_it_works'                  => 'Як це працює',
         'car_model'                     => 'Марка автомобіля',
         'car_number'                    => 'Номер автомобіля',
+        'service_pay'                   => 'Оплата за послуги',
         'email'                         => 'Email',
         'leave_review'                  => 'Залиште відгук',
         'leave_review_description'      => 'Залиште відгук про нашу роботу',

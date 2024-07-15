@@ -220,8 +220,8 @@
                     <div class="row">
 
                         <div class="col-lg-10 col-12 mx-auto">
-                            <form action="#" method="post" class="custom-form booking-form" id="bb-booking-form"
-                                  role="form">
+                            <form action="https://www.liqpay.ua/api/3/checkout" method="POST" class="custom-form booking-form" id="bb-booking-form"
+                                  accept-charset="utf-8">
                                 <div class="text-center mb-5">
                                     <h2 class="mb-1">{{__('translations.texts.join')}}</h2>
 
@@ -272,6 +272,9 @@
                                                 class="form-control">{{__('translations.buttons.pay')}}</button>
                                     </div>
                                 </div>
+                                <input type="hidden" name="data" value="{{$data}}" />
+                                <input type="hidden" name="signature" value="{{$signature}}" />
+                                @csrf
                             </form>
                         </div>
                     </div>

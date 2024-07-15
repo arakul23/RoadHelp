@@ -4,6 +4,7 @@ use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\PayController;
 use App\Http\Controllers\PublicOfferController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ReviewController;
@@ -31,3 +32,4 @@ Route::post('/admin/createMultipleRegions', [RegionController::class, 'parseRegi
 Route::post('/admin/exportCities', [CitiesController::class, 'exportCities'])->name('ExportCities');
 Route::post('/review', [ReviewController::class, 'create'])->name('createReview');
 Route::post('/language', [LanguageController::class, 'set'])->name('language');
+Route::post('/pay', [PayController::class, 'pay'])->name('pay');

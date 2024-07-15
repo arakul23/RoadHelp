@@ -50,6 +50,7 @@ If problems arise on the road, in a stressful situation, you will not have to se
         'phone_number'                  => 'Phone number',
         'how_it_works'                  => 'How it works',
         'car_model'                     => 'Car brand',
+        'service_pay'                   => 'Service pay',
         'car_number'                    => 'Vehicle number',
         'email'                         => 'Email',
         'leave_review'                  => 'Leave a review',
