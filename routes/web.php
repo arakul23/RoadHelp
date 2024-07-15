@@ -33,3 +33,4 @@ Route::post('/admin/exportCities', [CitiesController::class, 'exportCities'])->n
 Route::post('/review', [ReviewController::class, 'create'])->name('createReview');
 Route::post('/language', [LanguageController::class, 'set'])->name('language');
 Route::post('/pay', [PayController::class, 'pay'])->name('pay');
+Route::post('/liqpay/callback', [PayController::class, 'callback']);

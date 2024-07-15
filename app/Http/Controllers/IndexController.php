@@ -26,7 +26,7 @@ class IndexController extends Controller
             'order_id'    => Str::random(),
             'version'     => '3',
             'result_url'  => config('app.url'),
-            'server_url'  => config('app.url') . '/api/pay/result'
+            'server_url'  => config('app.url') . '/liqpay/callback'
         );
         $signature = $liqpay->cnb_signature($params);
         $data = base64_encode(json_encode($params));
