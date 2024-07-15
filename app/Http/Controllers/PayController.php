@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Client\Request;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
 use LiqPay;
 
 class PayController
 {
     protected $liqpay;
 
-    public function __construct(LiqPay $liqpay)
+    public function __construct()
     {
-        $this->liqpay = $liqpay;
+        $this->liqpay = new LiqPay('sandbox_i45981799389', 'sandbox_n14w6WtVDAQW2uFNfFdfMlpEYjQF3IhuSsmJk49y');
     }
 
     public function callback(Request $request)
@@ -22,7 +22,7 @@ class PayController
         $signature = $request->input('signature');
 
         $expectedSignature = base64_encode(sha1(
-            env('sandbox_n14w6WtVDAQW2uFNfFdfMlpEYjQF3IhuSsmJk49y') . $data . env('sandbox_n14w6WtVDAQW2uFNfFdfMlpEYjQF3IhuSsmJk49y'),
+            env('sandbox_i45981799389') . $data . env('sandbox_n14w6WtVDAQW2uFNfFdfMlpEYjQF3IhuSsmJk49y'),
             true
         ));
 
