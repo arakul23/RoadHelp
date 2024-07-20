@@ -60,11 +60,11 @@ class PayController
         return response('OK', 200);
     }
 
-    public function addClient(ClientRequest $request, Client $client)
+    public function preparePaymentData(ClientRequest $request, Client $client)
     {
         $orderId = Str::random();
         $liqpay = new LiqPay(config('liqpay.public_token'), config('liqpay.private_token'));
-        $test = json_encode([
+        $clientInfo = json_encode([
             'name'         => $request->validated('name'),
             'surname'      => $request->validated('surname'),
             'car_model'    => $request->validated('car_model'),
@@ -73,18 +73,18 @@ class PayController
             'phone_number' => $request->validated('phone_number'),
         ]);
         $params = array(
-            'info'        => $test,
+            'info'        => $clientInfo,
             'public_key'  => config('liqpay.public_token'),
             'private_key' => config('liqpay.private_token'),
             'action'      => 'pay',
             'language'    => app()->getLocale(),
-            'amount'      => '1',
+            'amount'      => '365',
             'currency'    => 'UAH',
             'description' => 'Оплата за послуги',
             'order_id'    => $orderId,
             'version'     => '3',
             'result_url'  => config('app.url'),
-            'server_url'  => 'https://588d-109-122-2-197.ngrok-free.app/api/liqpay/callback'
+            'server_url'  => config('app.url') . '/api/liqpay/callback'
         );
         $signature = $liqpay->cnb_signature($params);
         $data = base64_encode(json_encode($params));

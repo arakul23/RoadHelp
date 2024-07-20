@@ -515,14 +515,14 @@
                 email: document.getElementById('email').value,
                 phone_number: document.getElementById('phone_number').value,
             };
-            await fetch('/addClient',
+            await fetch('/preparePaymentData',
                 {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
-                        'url': '/addClient',
+                        'url': '/preparePaymentData',
                     },
                     body: JSON.stringify(data)
                 })
@@ -549,8 +549,7 @@
                     form.submit();
                 })
                 .catch(error => {
-                    // Обработка ошибок
-                    console.error('Error:', error.message);
+                    showError(error.message);
                 });
 
             // Программно отправляем форму после выполнения вашего кода
