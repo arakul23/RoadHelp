@@ -6,10 +6,14 @@ namespace App\Http\Controllers;
 use App\ClientStatus;
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
+use App\Models\Contact;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use LiqPay;
 use Throwable;
+use function Symfony\Component\Translation\t;
 
 class PayController
 {
@@ -36,13 +40,17 @@ class PayController
 
         $decodedData = json_decode(base64_decode($data), true);
 
-        // Пример обработки статуса
         $status = $decodedData['status'];
         $orderId = $decodedData['order_id'];
-        Log::info(Client::where('order_id', $orderId)->get());
-        Log::info($orderId);
+
+        $clientInfo = json_decode($decodedData['info'], true);
+        $clientInfo['order_id'] = $orderId;
+        $clientInfo['status'] = ClientStatus::PAID;
+
         if ($status == 'success') {
-            Client::where('order_id', $orderId)->update(['status' => ClientStatus::PAID]);
+            $client = new Client();
+            $client->fill($clientInfo);
+            $client->save();
         } elseif ($status == 'failure') {
             // Платеж не удался
         } elseif ($status == 'processing') {
@@ -54,9 +62,33 @@ class PayController
 
     public function addClient(ClientRequest $request, Client $client)
     {
-        $client = $client->fill($request->validated());
-        $client->status = ClientStatus::NOT_PAID;
-        $client->save();
-        $c = 23;
+        $orderId = Str::random();
+        $liqpay = new LiqPay(config('liqpay.public_token'), config('liqpay.private_token'));
+        $test = json_encode([
+            'name'         => $request->validated('name'),
+            'surname'      => $request->validated('surname'),
+            'car_model'    => $request->validated('car_model'),
+            'car_number'   => $request->validated('car_number'),
+            'email'        => $request->validated('email'),
+            'phone_number' => $request->validated('phone_number'),
+        ]);
+        $params = array(
+            'info'        => $test,
+            'public_key'  => config('liqpay.public_token'),
+            'private_key' => config('liqpay.private_token'),
+            'action'      => 'pay',
+            'language'    => app()->getLocale(),
+            'amount'      => '1',
+            'currency'    => 'UAH',
+            'description' => 'Оплата за послуги',
+            'order_id'    => $orderId,
+            'version'     => '3',
+            'result_url'  => config('app.url'),
+            'server_url'  => 'https://588d-109-122-2-197.ngrok-free.app/api/liqpay/callback'
+        );
+        $signature = $liqpay->cnb_signature($params);
+        $data = base64_encode(json_encode($params));
+
+        return ['data' => $data, 'signature' => $signature];
     }
 }
