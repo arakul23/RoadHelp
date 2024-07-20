@@ -154,7 +154,7 @@
 
                         <div class="col-lg-6 col-12 mb-4">
                             <h4 class="mb-0">{{__('translations.texts.tow_truck')}}</h4>
-                            <i  style="font-size: 10px">{{__('translations.texts.tow_truck_description')}}</i>
+                            <i style="font-size: 10px">{{__('translations.texts.tow_truck_description')}}</i>
                             <br>
                             <i style="font-size: 10px">{{__('translations.texts.tow_truck_price')}}</i>
                             <hr>
@@ -166,11 +166,9 @@
                         </div>
 
 
-
-
                         <div class="col-lg-6 col-12 mb-4">
                             <h4 class="mb-0">{{__('translations.texts.wheel_replacement')}}</h4>
-                            <i  style="font-size: 10px">{{__('translations.texts.wheel_replacement_description')}}</i>
+                            <i style="font-size: 10px">{{__('translations.texts.wheel_replacement_description')}}</i>
                             <br>
                             <i style="font-size: 10px">{{__('translations.texts.wheel_replacement_price')}}</i>
                             <hr>
@@ -182,10 +180,9 @@
                         </div>
 
 
-
                         <div class="col-lg-6 col-12 mb-4">
                             <h4 class="mb-0">{{__('translations.texts.engine_starting')}}</h4>
-                            <i  style="font-size: 10px">{{__('translations.texts.engine_starting_description')}}</i>
+                            <i style="font-size: 10px">{{__('translations.texts.engine_starting_description')}}</i>
                             <br>
                             <i style="font-size: 10px">{{__('translations.texts.engine_starting_price')}}</i>
                             <hr>
@@ -197,10 +194,9 @@
                         </div>
 
 
-
                         <div class="col-lg-6 col-12 mb-4">
                             <h4 class="mb-0">{{__('translations.texts.door_open')}}</h4>
-                            <i  style="font-size: 10px">{{__('translations.texts.door_open_description')}}</i>
+                            <i style="font-size: 10px">{{__('translations.texts.door_open_description')}}</i>
                             <br>
                             <i style="font-size: 10px">{{__('translations.texts.door_open_price')}}</i>
                             <hr>
@@ -220,7 +216,8 @@
                     <div class="row">
 
                         <div class="col-lg-10 col-12 mx-auto">
-                            <form action="https://www.liqpay.ua/api/3/checkout" method="POST" class="custom-form booking-form" id="bb-booking-form"
+                            <form action="https://www.liqpay.ua/api/3/checkout" method="POST"
+                                  class="custom-form booking-form" id="bb-booking-form"
                                   accept-charset="utf-8">
                                 <div class="text-center mb-5">
                                     <h2 class="mb-1">{{__('translations.texts.join')}}</h2>
@@ -243,7 +240,7 @@
                                                    placeholder="{{__('translations.texts.car_model')}}" required>
                                         </div>
                                         <div class="col-lg-12 col-12">
-                                            <input type="text" class="form-control" name="car_number"
+                                            <input type="text" class="form-control" name="car_number" id="car_number"
                                                    placeholder="{{__('translations.texts.car_number')}}" required>
                                         </div>
                                         <div class="col-lg-12 col-12">
@@ -252,7 +249,7 @@
                                         </div>
 
                                         <div class="col-lg-12 col-12">
-                                            <input type="tel" class="form-control" name="phone_number"
+                                            <input type="tel" class="form-control" name="phone_number" id="phone_number"
                                                    placeholder="{{__('translations.texts.phone_number')}}" required="">
                                         </div>
 
@@ -272,8 +269,9 @@
                                                 class="form-control">{{__('translations.buttons.pay')}}</button>
                                     </div>
                                 </div>
-                                <input type="hidden" name="data" value="{{$data}}" />
-                                <input type="hidden" name="signature" value="{{$signature}}" />
+                                <input type="hidden" name="data" value="{{$data}}"/>
+                                <input type="hidden" name="signature" value="{{$signature}}"/>
+                                <input type="hidden" name="orderId" id="order_id" value="{{$orderId}}"/>
                                 @csrf
                             </form>
                         </div>
@@ -287,7 +285,6 @@
 
                         <div class="col-lg-10 col-12 mx-auto">
                             <form action="#" method="post" class="custom-form booking-form"
-                                  id="bb-booking-form"
                                   role="form">
                                 <div class="text-center mb-5">
                                     <h2 class="mb-1">{{__('translations.texts.leave_review')}}</h2>
@@ -497,6 +494,40 @@
             autoplay: true,
             autoplaySpeed: 5000,
             arrows: true
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("bb-booking-form");
+
+        form.addEventListener("submit", async function (event) {
+            // Предотвращаем отправку формы по умолчанию
+            event.preventDefault();
+
+            // Выполняем свой код
+            let data = {
+                name: document.getElementById('name').value,
+                surname: document.getElementById('surname').value,
+                car_model: document.getElementById('car_model').value,
+                car_number: document.getElementById('car_number').value,
+                email: document.getElementById('email').value,
+                phone_number: document.getElementById('phone_number').value,
+                order_id: document.getElementById('order_id').value
+            };
+            await fetch('/addClient',
+                {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{!! csrf_token() !!}',
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'url': '/addClient',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+            // Программно отправляем форму после выполнения вашего кода
+            form.submit();
         });
     });
 

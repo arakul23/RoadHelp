@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 
+use App\ClientStatus;
+use App\Http\Requests\ClientRequest;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use LiqPay;
+use Throwable;
 
 class PayController
 {
@@ -13,7 +17,7 @@ class PayController
 
     public function __construct()
     {
-        $this->liqpay = new LiqPay('sandbox_i45981799389', 'sandbox_n14w6WtVDAQW2uFNfFdfMlpEYjQF3IhuSsmJk49y');
+        $this->liqpay = new LiqPay(config('liqpay.public_token'), config('liqpay.private_token'));
     }
 
     public function callback(Request $request)
@@ -22,7 +26,7 @@ class PayController
         $signature = $request->input('signature');
 
         $expectedSignature = base64_encode(sha1(
-            env('sandbox_i45981799389') . $data . env('sandbox_n14w6WtVDAQW2uFNfFdfMlpEYjQF3IhuSsmJk49y'),
+            (config('liqpay.private_token')) . $data . config('liqpay.private_token'),
             true
         ));
 
@@ -32,16 +36,13 @@ class PayController
 
         $decodedData = json_decode(base64_decode($data), true);
 
-        // Обработка данных о платеже
-        Log::info('LiqPay callback data:', $decodedData);
-
         // Пример обработки статуса
         $status = $decodedData['status'];
         $orderId = $decodedData['order_id'];
-
+        Log::info(Client::where('order_id', $orderId)->get());
+        Log::info($orderId);
         if ($status == 'success') {
-            // Платеж успешно завершен
-            // Обновите статус заказа в базе данных
+            Client::where('order_id', $orderId)->update(['status' => ClientStatus::PAID]);
         } elseif ($status == 'failure') {
             // Платеж не удался
         } elseif ($status == 'processing') {
@@ -49,5 +50,13 @@ class PayController
         }
 
         return response('OK', 200);
+    }
+
+    public function addClient(ClientRequest $request, Client $client)
+    {
+        $client = $client->fill($request->validated());
+        $client->status = ClientStatus::NOT_PAID;
+        $client->save();
+        $c = 23;
     }
 }
