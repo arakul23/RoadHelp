@@ -15,10 +15,10 @@ class IndexController extends Controller
         $reviews = Review::skip(0)->take(10)->get();
         $contacts = Contact::first();
         $orderId = Str::random();
-        $liqpay = new LiqPay('sandbox_i45981799389', 'sandbox_n14w6WtVDAQW2uFNfFdfMlpEYjQF3IhuSsmJk49y');
+        $liqpay = new LiqPay(config('liqpay.public_token'), config('liqpay.private_token'));
         $params = array(
-            'public_key'  => 'sandbox_i45981799389',
-            'private_key' => 'sandbox_n14w6WtVDAQW2uFNfFdfMlpEYjQF3IhuSsmJk49y',
+            'public_key'  => config('liqpay.public_token'),
+            'private_key' => config('liqpay.private_token'),
             'action'      => 'pay',
             'language'    => app()->getLocale(),
             'amount'      => '1',
@@ -27,7 +27,7 @@ class IndexController extends Controller
             'order_id'    => $orderId,
             'version'     => '3',
             'result_url'  => config('app.url'),
-            'server_url'  => 'https://8f72-45-149-25-189.ngrok-free.app/api/liqpay/callback'
+            'server_url'  => 'https://6134-109-122-8-87.ngrok-free.app/api/liqpay/callback'
         );
         $signature = $liqpay->cnb_signature($params);
         $data = base64_encode(json_encode($params));

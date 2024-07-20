@@ -67,5 +67,8 @@ return [
         'not_filled_required_fields'    => 'Не заповнені обов\'язкові поля',
         'required'                      => '(Обов\'язково)',
         'about_us'                      => 'Про нас'
+    ],
+    'errors' => [
+        'carNumberUnique' => 'Автомобіль з таким номером вже існує'
     ]
 ];

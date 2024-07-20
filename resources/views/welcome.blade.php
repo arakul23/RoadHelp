@@ -273,6 +273,7 @@
                                 <input type="hidden" name="signature" value="{{$signature}}"/>
                                 <input type="hidden" name="orderId" id="order_id" value="{{$orderId}}"/>
                                 @csrf
+                                <span id="error_field" style="color:red"></span>
                             </form>
                         </div>
                     </div>
@@ -498,6 +499,8 @@
     });
 
     document.addEventListener("DOMContentLoaded", function () {
+        const errorField = document.getElementById("error_field");
+        errorField.textContent = '';
         const form = document.getElementById("bb-booking-form");
 
         form.addEventListener("submit", async function (event) {
@@ -524,12 +527,29 @@
                         'url': '/addClient',
                     },
                     body: JSON.stringify(data)
-                });
+                }).then(response => {
+                if (!response.ok) {
+                    // Если ответ имеет статус ошибки, выбрасываем ошибку
+                    return response.json().then(error => {
+                        showError(error.message);
+                    });
+                }
+                form.submit()
+            }).catch(error => {
+                // Обработка ошибок
+                console.error('Error:', error.message);
+            });
 
             // Программно отправляем форму после выполнения вашего кода
-            form.submit();
+            //form.submit();
         });
     });
+
+    function showError(message)
+    {
+        const errorField = document.getElementById("error_field");
+        errorField.textContent = message;
+    }
 
     async function createReview() {
         document.getElementById('review_error').innerText = "";

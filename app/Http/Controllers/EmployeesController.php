@@ -3,14 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\ReferalClient;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Client\Request;
 
 class EmployeesController extends Controller
 {
-    public function handleRefLink(Employee $employee): Application
+    public function handleRefLink(Employee $employee)
     {
-        $employee->count_visit++;
-        $employee->save();
+        $visitorIp = request()->ip();
+        $visitor = ReferalClient::where('visitor',$visitorIp)->first();
+
+        if (!$visitor) {
+            ReferalClient::create(['visitor' => $visitorIp]);
+            $employee->count_visit++;
+            $employee->save();
+        }
 
         return redirect('/');
     }

@@ -69,5 +69,8 @@ If problems arise on the road, in a stressful situation, you will not have to se
         'not_filled_required_fields'    => 'Mandatory fields are not filled',
         'required'                      => '(Necessarily)',
         'about_us'                      => 'About us'
+    ],
+    'errors' => [
+        'carNumberUnique' => 'Vehicle number already exists'
     ]
 ];
