@@ -21,13 +21,13 @@ class IndexController extends Controller
             'private_key' => config('liqpay.private_token'),
             'action'      => 'pay',
             'language'    => app()->getLocale(),
-            'amount'      => '1',
+            'amount'      => '365',
             'currency'    => 'UAH',
             'description' => 'Оплата за послуги',
             'order_id'    => $orderId,
             'version'     => '3',
             'result_url'  => config('app.url'),
-            'server_url'  => 'https://6134-109-122-8-87.ngrok-free.app/api/liqpay/callback'
+            'server_url'  => config('app.url') . '/api/liqpay/callback'
         );
         $signature = $liqpay->cnb_signature($params);
         $data = base64_encode(json_encode($params));

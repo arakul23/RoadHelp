@@ -39,24 +39,20 @@ class PayController
         // Пример обработки статуса
         $status = $decodedData['status'];
         $orderId = $decodedData['order_id'];
-        Log::info(Client::where('order_id', $orderId)->get());
-        Log::info($orderId);
+
         if ($status == 'success') {
             Client::where('order_id', $orderId)->update(['status' => ClientStatus::PAID]);
         } elseif ($status == 'failure') {
             // Платеж не удался
-        } elseif ($status == 'processing') {
-            // Платеж в процессе
         }
 
         return response('OK', 200);
     }
 
-    public function addClient(ClientRequest $request, Client $client)
+    public function addClient(ClientRequest $request, Client $client): void
     {
         $client = $client->fill($request->validated());
         $client->status = ClientStatus::NOT_PAID;
         $client->save();
-        $c = 23;
     }
 }
