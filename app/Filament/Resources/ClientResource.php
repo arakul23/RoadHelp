@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ClientResource\Pages;
-use App\Filament\Resources\ClientResource\RelationManagers;
 use App\Models\Client;
-use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms;
 
 class ClientResource extends Resource
 {
@@ -23,7 +20,24 @@ class ClientResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->label('Имя'),
+                Forms\Components\TextInput::make('surname')
+                    ->required()
+                    ->label('Фамилия'),
+                Forms\Components\TextInput::make('car_model')
+                    ->required()
+                    ->label('Модель машины'),
+                Forms\Components\TextInput::make('car_number')
+                    ->required()
+                    ->label('Номер машины'),
+                Forms\Components\TextInput::make('email')
+                    ->required()
+                    ->label('Email'),
+                Forms\Components\TextInput::make('phone_number')
+                    ->required()
+                    ->label('Номер телефона'),
             ]);
     }
 
@@ -48,7 +62,10 @@ class ClientResource extends Resource
                     ->label('Email'),
                 Tables\Columns\TextColumn::make('phone_number')
                     ->sortable()
-                    ->label('phone_number'),
+                    ->label('Номер телефона'),
+                Tables\Columns\TextColumn::make('order_id')
+                    ->sortable()
+                    ->label('Номер оплаты'),
             ])
             ->filters([
                 //
@@ -80,5 +97,10 @@ class ClientResource extends Resource
     public static function getNavigationLabel(): string
     {
         return __('filament::layout.navigation.clients');
+    }
+
+    public static function canCreate(): bool
+    {
+        return false;
     }
 }

@@ -68,7 +68,8 @@ If problems arise on the road, in a stressful situation, you will not have to se
         'review_not_created'            => 'Failed to add review . Contact the site administrator',
         'not_filled_required_fields'    => 'Mandatory fields are not filled',
         'required'                      => '(Necessarily)',
-        'about_us'                      => 'About us'
+        'about_us'                      => 'About us',
+        'order_description'             => 'Payment for services'
     ],
     'errors' => [
         'carNumberUnique' => 'Vehicle number already exists'

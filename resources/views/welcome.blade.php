@@ -78,6 +78,7 @@
                         <select name="language" onchange="this.form.submit()">
                             <option value="ua" {{app()->getLocale() === 'uk' ? 'selected' : ''}}>UK</option>
                             <option value="en" {{app()->getLocale() === 'en' ? 'selected' : ''}}>EN</option>
+                            <option value="de" {{app()->getLocale() === 'de' ? 'selected' : ''}}>DE</option>
                         </select>
                     </form>
                 </div>

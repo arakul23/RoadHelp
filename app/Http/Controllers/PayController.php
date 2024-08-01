@@ -6,23 +6,13 @@ namespace App\Http\Controllers;
 use App\ClientStatus;
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
-use App\Models\Contact;
-use App\Models\Review;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use LiqPay;
-use Throwable;
-use function Symfony\Component\Translation\t;
 
 class PayController
 {
     protected $liqpay;
-
-    public function __construct()
-    {
-        $this->liqpay = new LiqPay(config('liqpay.public_token'), config('liqpay.private_token'));
-    }
 
     public function callback(Request $request)
     {
@@ -60,10 +50,11 @@ class PayController
         return response('OK', 200);
     }
 
-    public function preparePaymentData(ClientRequest $request, Client $client)
+    public function preparePaymentData(ClientRequest $request, LiqPay $liqpay): array
     {
         $orderId = Str::random();
-        $liqpay = new LiqPay(config('liqpay.public_token'), config('liqpay.private_token'));
+        $langs = ['uk', 'en'];
+
         $clientInfo = json_encode([
             'name'         => $request->validated('name'),
             'surname'      => $request->validated('surname'),
@@ -77,10 +68,10 @@ class PayController
             'public_key'  => config('liqpay.public_token'),
             'private_key' => config('liqpay.private_token'),
             'action'      => 'pay',
-            'language'    => app()->getLocale(),
+            'language'    => in_array(app()->getLocale(), $langs) ? app()->getLocale() : 'en',
             'amount'      => '365',
             'currency'    => 'UAH',
-            'description' => 'Оплата за послуги',
+            'description' => __('translations.texts.order_description'),
             'order_id'    => $orderId,
             'version'     => '3',
             'result_url'  => config('app.url'),

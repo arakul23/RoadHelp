@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use LiqPay;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->app->bind(LiqPay::class, function () {
+            return new LiqPay(config('liqpay.public_token'), config('liqpay.private_token'));
+        });
     }
 }
