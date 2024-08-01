@@ -37,6 +37,7 @@ return [
         'companies' => 'Компанії',
         'services' => 'Послуги',
         'countries' => 'Країни',
+        'clients' => 'Клієнти',
         'employees' => 'Позаштатні добровільні співробітники',
         'reviews' => 'Відгуки',
         'contacts' => 'Контакти'
