@@ -46,7 +46,7 @@ If problems arise on the road, in a stressful situation, you will not have to se
         'door_open_description'         => 'Organization of the service of emergency opening of locks and doors, in cases where the keys were locked in medium-sized cars. Specialists will open your car, if there are documents for the car. The time of arrival of the master to open the car depends on the place of occurrence of the event, within the city no more than an hour.',
         'door_open_price'               => 'From UAH 500 in the city, outside the city + 15 hryvnias . for 1 km . in both directions . ',
         'join'                          => 'Join in',
-        'pay_form_text'                 => 'use our services for 1 hryvnia per day(the contract is concluded for one year, at the price of 365 hryvnias) (1 hryvnya per day is equal 2,5 cents, 365 hryvnias per year is equal 9,1 dollars)',
+        'pay_form_text'                 => 'use our services for 1 hryvnia per day(the contract is concluded for one year, at the price of 365 hryvnias) (1 hryvnya per day is equal 2,5 cents, 365 hryvnias per year is equal 9 dollars)',
         'phone_number'                  => 'Phone number',
         'how_it_works'                  => 'How it works',
         'car_model'                     => 'Car brand',
