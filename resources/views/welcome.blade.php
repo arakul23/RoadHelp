@@ -269,9 +269,8 @@
                                                 class="form-control">{{__('translations.buttons.pay')}}</button>
                                     </div>
                                 </div>
-                                <input type="hidden" name="data" value="{{$data}}"/>
-                                <input type="hidden" name="signature" value="{{$signature}}"/>
-                                <input type="hidden" name="orderId" id="order_id" value="{{$orderId}}"/>
+                                <input type="hidden" name="data" id="data" value=""/>
+                                <input type="hidden" name="signature" id="signature" value=""/>
                                 @csrf
                                 <span id="error_field" style="color:red"></span>
                             </form>
@@ -515,38 +514,50 @@
                 car_number: document.getElementById('car_number').value,
                 email: document.getElementById('email').value,
                 phone_number: document.getElementById('phone_number').value,
-                order_id: document.getElementById('order_id').value
             };
-            await fetch('/addClient',
+            await fetch('/preparePaymentData',
                 {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
-                        'url': '/addClient',
+                        'url': '/preparePaymentData',
                     },
                     body: JSON.stringify(data)
-                }).then(response => {
-                if (!response.ok) {
-                    // Если ответ имеет статус ошибки, выбрасываем ошибку
-                    return response.json().then(error => {
-                        showError(error.message);
-                    });
-                }
-                form.submit()
-            }).catch(error => {
-                // Обработка ошибок
-                console.error('Error:', error.message);
-            });
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        // Если ответ имеет статус ошибки, выбрасываем ошибку
+                        return response.json().then(error => {
+                            showError(error.message);
+                            throw new Error(error.message); // чтобы попасть в catch блок
+                        });
+                    }
+                    // Парсим JSON ответ
+                    return response.json();
+                })
+                .then(data => {
+                    // Обрабатываем данные из ответа
+
+                    const dataField = document.getElementById("data");
+                    const signatureField = document.getElementById("signature");
+
+                    // Получаем данные по ключу из ответа
+                    dataField.value = data.data; // Предполагаем, что в ответе есть ключ 'data'
+                    signatureField.value = data.signature; // Предполагаем, что в ответе есть ключ 'data'
+                    form.submit();
+                })
+                .catch(error => {
+                    showError(error.message);
+                });
 
             // Программно отправляем форму после выполнения вашего кода
             //form.submit();
         });
     });
 
-    function showError(message)
-    {
+    function showError(message) {
         const errorField = document.getElementById("error_field");
         errorField.textContent = message;
     }
