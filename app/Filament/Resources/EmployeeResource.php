@@ -35,9 +35,8 @@ class EmployeeResource extends Resource
                     ->label('Отчество'),
                 Forms\Components\Select::make('country_id')
                     ->required()
-                    ->relationship('country', 'name'),
+                    ->relationship('country', 'name')->label('Страна'),
                 Forms\Components\TextInput::make('special_marks')
-                    ->required()
                     ->label('Особые отметки'),
             ]);
     }
@@ -58,6 +57,9 @@ class EmployeeResource extends Resource
                 Tables\Columns\TextColumn::make('country.name')
                     ->sortable()
                     ->label('Страна'),
+                Tables\Columns\TextColumn::make('referral_link')
+                    ->sortable()
+                    ->label('Реферальная ссылка'),
                 Tables\Columns\TextColumn::make('special_marks')
                     ->sortable()
                     ->label('Особые отметки'),
@@ -83,9 +85,9 @@ class EmployeeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListEmployees::route('/'),
+            'index'  => Pages\ListEmployees::route('/'),
             'create' => Pages\CreateEmployee::route('/create'),
-            'edit' => Pages\EditEmployee::route('/{record}/edit'),
+            'edit'   => Pages\EditEmployee::route('/{record}/edit'),
         ];
     }
 
