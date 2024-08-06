@@ -60,6 +60,9 @@ class EmployeeResource extends Resource
                 Tables\Columns\TextColumn::make('referral_link')
                     ->sortable()
                     ->label('Реферальная ссылка'),
+                Tables\Columns\TextColumn::make('count_visit')
+                    ->sortable()
+                    ->label('Количество рефералов'),
                 Tables\Columns\TextColumn::make('special_marks')
                     ->sortable()
                     ->label('Особые отметки'),
