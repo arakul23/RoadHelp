@@ -76,7 +76,7 @@
                     <form action="{{route('language')}}" method="POST">
                         @csrf
                         <select name="language" onchange="this.form.submit()">
-                            <option value="uk" {{app()->getLocale() === 'uk' ? 'selected' : ''}}>UK</option>
+                            <option value="ua" {{app()->getLocale() === 'uk' ? 'selected' : ''}}>UK</option>
                             <option value="en" {{app()->getLocale() === 'en' ? 'selected' : ''}}>EN</option>
                             <option value="de" {{app()->getLocale() === 'de' ? 'selected' : ''}}>DE</option>
                         </select>
@@ -210,6 +210,7 @@
 
                     </div>
                 </div>
+                <i>{{__('translations.texts.first_aid_free')}}</i>
             </section>
 
             <section class="pay-form-section section-padding" id="section_4">

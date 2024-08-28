@@ -27,7 +27,7 @@ return [
         'about_us_3'                    => "We are always there and ready to help.",
         'about_us_4'                    => 'Ukraine, Odesa, st. Parkova 75v, apartment 42',
         'how_it_works_1'                => 'Assistentauto quickly unites specialists and those who need their services for only 1 hryvnia per day.
-If problems arise on the road, in a stressful situation, you will not have to seek help, call us, and we will quickly select the specialists you need to solve your problem on the roads of Ukraine, and send you help:',
+If problems arise on the road, in a stressful situation, you will not have to seek help, call us, and we will quickly select the specialists you need to solve your problem on the roads of Ukraine, and send you help (one call for help is free):',
         'how_it_works_2'                => "the battery is in, we can help you start the engine, left the keys in the car - we'll open it, the wheels are punctured -
                                     we will replace it, we need a tow truck - and here we are",
         'how_it_works_3'                => "We work for you, we work with you, together we bring victory closer!",
@@ -69,7 +69,8 @@ If problems arise on the road, in a stressful situation, you will not have to se
         'not_filled_required_fields'    => 'Mandatory fields are not filled',
         'required'                      => '(Necessarily)',
         'about_us'                      => 'About us',
-        'order_description'             => 'Payment for services'
+        'order_description'             => 'Payment for services',
+        'first_aid_free'                => 'First aid is free'
     ],
     'errors' => [
         'carNumberUnique' => 'Vehicle number already exists'

@@ -25,7 +25,7 @@ return [
         'about_us_2'                    => 'Wir bewahren Ruhe auf der Straße für Sie und Ihre Angehörigen und helfen gemeinsam, den Sieg näher zu bringen!',
         'about_us_3'                    => 'Wir sind immer in der Nähe und bereit zu helfen.',
         'about_us_4'                    => 'Ukraine, Odessa, Parkova Str. 75v, Appt. 42',
-        'how_it_works_1'                => 'Assistentauto verbindet schnell Fachleute und diejenigen, die ihre Dienstleistungen für nur 1 Griwna pro Tag benötigen. Bei Problemen auf der Straße, in einem stressigen Zustand, müssen Sie nicht nach Hilfe suchen, rufen Sie uns an und wir werden schnell die erforderlichen Fachleute für die Lösung Ihres Problems auf den Straßen der Ukraine finden und Ihnen Hilfe schicken:',
+        'how_it_works_1'                => 'Assistentauto verbindet schnell Fachleute und diejenigen, die ihre Dienstleistungen für nur 1 Griwna pro Tag benötigen. Bei Problemen auf der Straße, in einem stressigen Zustand, müssen Sie nicht nach Hilfe suchen, rufen Sie uns an und wir werden schnell die erforderlichen Fachleute für die Lösung Ihres Problems auf den Straßen der Ukraine finden und Ihnen Hilfe schicken (Ein Hilferuf ist kostenlos):',
         'how_it_works_2'                => 'Batterie leer, wir helfen den Motor zu starten, Schlüssel im Auto gelassen - wir öffnen, Reifen platt - wir wechseln, brauchen einen Abschleppwagen - hier sind wir',
         'how_it_works_3'                => 'Wir arbeiten für Sie, wir arbeiten mit Ihnen, gemeinsam bringen wir den Sieg näher!',
         'charity_1'                     => 'Gemeinsam zum Sieg!',
@@ -66,7 +66,9 @@ return [
         'not_filled_required_fields'    => 'Pflichtfelder nicht ausgefüllt',
         'required'                      => '(Pflicht)',
         'about_us'                      => 'Über uns',
-        'order_description'             => 'Bezahlung für Dienstleistungen'
+        'order_description'             => 'Bezahlung für Dienstleistungen',
+        'first_aid_free'                => 'Erste Hilfe ist kostenlos'
+
     ],
 
     'errors' => [
