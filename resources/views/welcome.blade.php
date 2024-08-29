@@ -210,7 +210,7 @@
 
                     </div>
                 </div>
-                <i>{{__('translations.texts.first_aid_free')}}</i>
+                <i>{{__('translations.texts.one_help_free')}}</i>
             </section>
 
             <section class="pay-form-section section-padding" id="section_4">

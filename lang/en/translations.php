@@ -17,7 +17,7 @@ return [
         'send' => 'Send',
     ],
 
-    'texts' => [
+    'texts'  => [
         'close'                         => 'Close',
         'tagline'                       => 'Call us, we will do the rest',
         'about_us_1'                    => 'Assistentauto is a site that for 1 hryvnia per day helps you quickly find specialists to solve your problems on the roads of Ukraine. The best in their field work for you.',
@@ -70,7 +70,7 @@ If problems arise on the road, in a stressful situation, you will not have to se
         'required'                      => '(Necessarily)',
         'about_us'                      => 'About us',
         'order_description'             => 'Payment for services',
-        'first_aid_free'                => 'First aid is free'
+        'one_help_free'                 => 'One help is free'
     ],
     'errors' => [
         'carNumberUnique' => 'Vehicle number already exists'

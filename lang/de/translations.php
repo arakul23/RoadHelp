@@ -67,7 +67,7 @@ return [
         'required'                      => '(Pflicht)',
         'about_us'                      => 'Über uns',
         'order_description'             => 'Bezahlung für Dienstleistungen',
-        'first_aid_free'                => 'Erste Hilfe ist kostenlos'
+        'one_help_free'                 => 'Eine Hilfeleistung wird kostenlos geleistet'
 
     ],
 
